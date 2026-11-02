@@ -1,6 +1,8 @@
 package com.example.scoreboardgev;
 
 import android.os.Bundle;
+import android.widget.Button;
+import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -20,5 +22,9 @@ public class MainActivity extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+        Button btnStart = findViewById(R.id.btnStart);
+        btnStart.setOnClickListener(v ->
+                Toast.makeText(this, "game started", Toast.LENGTH_SHORT).show()
+        );
     }
 }
