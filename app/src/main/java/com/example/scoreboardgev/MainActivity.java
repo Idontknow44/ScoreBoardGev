@@ -104,8 +104,8 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 scoreA = 0;
                 scoreB = 0;
-                tvScoreA.setText("0");
-                tvScoreB.setText("0");
+                tvScoreA.setText(String.valueOf(scoreA));
+                tvScoreB.setText(String.valueOf(scoreB));
             }
         });
     }
