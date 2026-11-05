@@ -94,7 +94,46 @@
             android:background="#B2DFDB"
             android:gravity="center_horizontal"
             android:orientation="vertical"
-            android:padding="8dp">
+            android:padding="24dp">
+
+            <TextView
+                android:id="@+id/tvNameB"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="The Lions"
+                android:textStyle="bold"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/tvScoreB"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="64dp"
+                android:text="0"
+                android:textStyle="bold"
+                android:textSize="64sp" />
+
+            <Button
+                android:id="@+id/btnB3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="+3"
+                android:padding="12dp"/>
+
+            <Button
+                android:id="@+id/btnB2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="+2"
+                android:padding="12dp"/>
+
+            <Button
+                android:id="@+id/btnB1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="+1"
+                android:padding="12dp"/>
 
         </LinearLayout>
 
