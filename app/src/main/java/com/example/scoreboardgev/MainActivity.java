@@ -95,5 +95,18 @@ public class MainActivity extends AppCompatActivity {
                 tvScoreB.setText(String.valueOf(scoreB));
             }
         });
+
+
+
+        Button btnReset = findViewById(R.id.btnReset);
+        btnReset.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                scoreA = 0;
+                scoreB = 0;
+                tvScoreA.setText("0");
+                tvScoreB.setText("0");
+            }
+        });
     }
 }
