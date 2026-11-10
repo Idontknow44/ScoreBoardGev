@@ -15,8 +15,12 @@ import androidx.core.view.WindowInsetsCompat;
 public class MainActivity extends AppCompatActivity {
     int scoreA = 0;
     int scoreB = 0;
+
     TextView tvScoreA;
     TextView tvScoreB;
+
+    TextView tvErrorMsA;
+    TextView tvErrorMsB;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,6 +40,10 @@ public class MainActivity extends AppCompatActivity {
         tvScoreA = findViewById(R.id.tvScoreA);
         tvScoreB = findViewById(R.id.tvScoreB);
 
+        tvErrorMsA = findViewById(R.id.tvErrorMsA);
+        tvErrorMsB = findViewById(R.id.tvErrorMsB);
+
+
         Button btnA3 = findViewById(R.id.btnA3);
         Button btnB3 = findViewById(R.id.btnB3);
 
@@ -45,10 +53,14 @@ public class MainActivity extends AppCompatActivity {
         Button btnA1 = findViewById(R.id.btnA1);
         Button btnB1 = findViewById(R.id.btnB1);
 
+        Button btnAM = findViewById(R.id.btnAM);
+        Button btnBM = findViewById(R.id.btnBM);
+
 
         btnA3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                tvErrorMsA.setText("");
                 scoreA = scoreA + 3;
                 tvScoreA.setText(String.valueOf(scoreA));
             }
@@ -57,6 +69,7 @@ public class MainActivity extends AppCompatActivity {
         btnB3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                tvErrorMsB.setText("");
                 scoreB = scoreB + 3;
                 tvScoreB.setText(String.valueOf(scoreB));
             }
@@ -66,6 +79,7 @@ public class MainActivity extends AppCompatActivity {
         btnA2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                tvErrorMsA.setText("");
                 scoreA = scoreA + 2;
                 tvScoreA.setText(String.valueOf(scoreA));
             }
@@ -74,8 +88,9 @@ public class MainActivity extends AppCompatActivity {
         btnB2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                tvErrorMsB.setText("");
                 scoreB = scoreB + 2;
-                tvScoreB.setText(String.valueOf(scoreA));
+                tvScoreB.setText(String.valueOf(scoreB));
             }
         });
 
@@ -83,6 +98,7 @@ public class MainActivity extends AppCompatActivity {
         btnA1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                tvErrorMsA.setText("");
                 scoreA = scoreA + 1;
                 tvScoreA.setText(String.valueOf(scoreA));
             }
@@ -91,7 +107,35 @@ public class MainActivity extends AppCompatActivity {
         btnB1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                tvErrorMsB.setText("");
                 scoreB = scoreB + 1;
+                tvScoreB.setText(String.valueOf(scoreB));
+            }
+        });
+
+
+        btnAM.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (scoreA <= 0)
+                {
+                    tvErrorMsA.setText("cannot go lower than 0");
+                    return;
+                }
+                scoreA = scoreA - 1;
+                tvScoreA.setText(String.valueOf(scoreA));
+            }
+        });
+
+        btnBM.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (scoreB <= 0)
+                {
+                    tvErrorMsB.setText("cannot go lower than 0");
+                    return;
+                }
+                scoreB = scoreB - 1;
                 tvScoreB.setText(String.valueOf(scoreB));
             }
         });
