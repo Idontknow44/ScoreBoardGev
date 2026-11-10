@@ -33,7 +33,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="1"
+        android:layout_weight="8"
         android:layout_marginTop="16dp"
         android:orientation="horizontal">
 
@@ -174,17 +174,40 @@
 
     </LinearLayout>
 
-    <Button
-        android:id="@+id/btnReset"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
         android:layout_marginTop="16dp"
-        android:backgroundTint="@color/btn_reset"
-        android:paddingStart="32dp"
-        android:paddingEnd="32dp"
-        android:text="RESET"
-        android:textColor="#FFFFFF"
-        android:textSize="18sp" />
+        android:orientation="horizontal"
+        android:gravity="center_horizontal|bottom"
+        android:baselineAligned="false">
+
+        <Button
+            android:id="@+id/btnReset"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="0dp"
+            android:backgroundTint="@color/btn_reset"
+            android:paddingStart="32dp"
+            android:paddingEnd="32dp"
+            android:text="RESET"
+            android:textColor="#FFFFFF"
+            android:textSize="18sp" />
+
+        <Button
+            android:id="@+id/btnEndGame"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="0dp"
+            android:backgroundTint="@color/btn_end_game"
+            android:paddingStart="32dp"
+            android:paddingEnd="32dp"
+            android:text="END GAME"
+            android:textColor="#FFFFFF"
+            android:textSize="18sp" />
+
+    </LinearLayout>
 
 </LinearLayout>

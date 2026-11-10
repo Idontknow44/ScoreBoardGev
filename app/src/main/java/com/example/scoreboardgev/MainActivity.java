@@ -16,6 +16,8 @@ public class MainActivity extends AppCompatActivity {
     int scoreA = 0;
     int scoreB = 0;
 
+    boolean gameOn = true;
+
     TextView tvScoreA;
     TextView tvScoreB;
 
@@ -60,6 +62,9 @@ public class MainActivity extends AppCompatActivity {
         btnA3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if (!gameOn)
+                    return;
+
                 tvErrorMsA.setText("");
                 scoreA = scoreA + 3;
                 tvScoreA.setText(String.valueOf(scoreA));
@@ -69,6 +74,8 @@ public class MainActivity extends AppCompatActivity {
         btnB3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if (!gameOn)
+                    return;
                 tvErrorMsB.setText("");
                 scoreB = scoreB + 3;
                 tvScoreB.setText(String.valueOf(scoreB));
@@ -79,6 +86,8 @@ public class MainActivity extends AppCompatActivity {
         btnA2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if (!gameOn)
+                    return;
                 tvErrorMsA.setText("");
                 scoreA = scoreA + 2;
                 tvScoreA.setText(String.valueOf(scoreA));
@@ -88,6 +97,8 @@ public class MainActivity extends AppCompatActivity {
         btnB2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if (!gameOn)
+                    return;
                 tvErrorMsB.setText("");
                 scoreB = scoreB + 2;
                 tvScoreB.setText(String.valueOf(scoreB));
@@ -98,6 +109,8 @@ public class MainActivity extends AppCompatActivity {
         btnA1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if (!gameOn)
+                    return;
                 tvErrorMsA.setText("");
                 scoreA = scoreA + 1;
                 tvScoreA.setText(String.valueOf(scoreA));
@@ -107,6 +120,8 @@ public class MainActivity extends AppCompatActivity {
         btnB1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if (!gameOn)
+                    return;
                 tvErrorMsB.setText("");
                 scoreB = scoreB + 1;
                 tvScoreB.setText(String.valueOf(scoreB));
@@ -117,6 +132,8 @@ public class MainActivity extends AppCompatActivity {
         btnAM.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if (!gameOn)
+                    return;
                 if (scoreA <= 0)
                 {
                     tvErrorMsA.setText("cannot go lower than 0");
@@ -130,6 +147,8 @@ public class MainActivity extends AppCompatActivity {
         btnBM.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if (!gameOn)
+                    return;
                 if (scoreB <= 0)
                 {
                     tvErrorMsB.setText("cannot go lower than 0");
@@ -143,13 +162,35 @@ public class MainActivity extends AppCompatActivity {
 
 
         Button btnReset = findViewById(R.id.btnReset);
+        Button btnEndGame = findViewById(R.id.btnEndGame);
+
         btnReset.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                gameOn = true;
+                tvErrorMsB.setText("");
                 scoreA = 0;
                 scoreB = 0;
                 tvScoreA.setText(String.valueOf(scoreA));
                 tvScoreB.setText(String.valueOf(scoreB));
+            }
+        });
+
+        btnEndGame.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String endMessage = "";
+
+                if (scoreA == scoreB)
+                    endMessage = "it's a draw!";
+                else if (scoreA >= scoreB)
+                    endMessage = "The Eagles Win!";
+                else
+                    endMessage = "The Lions Win!";
+
+                tvErrorMsB.setText("");
+                gameOn = false;
+                Toast.makeText(MainActivity.this, endMessage, Toast.LENGTH_SHORT).show();
             }
         });
     }

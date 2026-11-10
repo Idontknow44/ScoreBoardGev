@@ -4,6 +4,7 @@
     <color name="white">#FFFFFF</color>
     <color name="screen_bg">#7DFFDC</color>
     <color name="btn_reset">#C62828</color>
+    <color name="btn_end_game">#169135</color>
     <color name="team_a_bg">#FFE0B2</color>
     <color name="team_b_bg">#B2DFDB</color>
     <color name="special_button">#FF5722</color>
